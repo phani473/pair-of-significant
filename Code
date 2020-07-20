@@ -1,0 +1,47 @@
+lis = list(input().split())
+print(lis)
+lis1 = []
+s = "112"
+for i in lis:
+    #print(len(i),end=" ")
+    if(len(i)==2):
+        lis1.append(i)
+    if(len(i)>2):
+       #print(((int(max(i))*11)+(int(min(i))*7)),end=" ")
+       j = ((int(max(i))*11)+(int(min(i))*7))
+       if((len(str(j)))==2):
+           lis1.append(str(j))
+       if(len(str(j)))==3:
+           k = str(j)
+           lis1.append(k[1:])
+#print(lis1)
+odd1 = []
+even1 =[]
+for i in range(len(lis1)):
+    if((i+1)%2!=0):
+        p = lis1[i]
+        odd1.append(p[0])
+    else:
+        q = lis1[i]
+        even1.append(q[0])
+oddcount=[]
+evencount=[]
+for i in odd1:
+    oddcount.append(odd1.count(i))
+odd = dict(zip(odd1,oddcount))
+for j in even1:
+    evencount.append(even1.count(j))
+even = dict(zip(even1,evencount))
+count=0
+for i in odd:
+    if(odd.get(i)>1):
+       count+=odd.get(i)-1
+count1=0
+for i in even:
+    if(even.get(i)>1):
+       count1+=even.get(i)-1
+print(count+count1)
+        
+        
+        
+
